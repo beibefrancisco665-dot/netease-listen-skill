@@ -34,6 +34,8 @@ npm test
 
 **不要只复制一起听 skill。** 它通过 `netease.local.fetch` 调用本地适配插件，插件和桥接服务均为必需组件。QQA 的安装位置及数据目录以当前实例实际路径为准。
 
+必需插件已随仓库提供：[netease-local-adapter 源码与说明](plugins/netease-local-adapter/README.md)。将整个插件目录放入 `<QQAgent应用目录>/plugins/`，不要放进 `skills/`。[本次上传补充说明](docs/PUSH_NOTES.md)列出了安装版与仓库版的对应关系。
+
 ## 配置与数据
 
 [config/qqa.example.json](config/qqa.example.json) 仅展示需要合并的设置；连接密钥、QQ 会话默认留空。请在本机 QQAgent 设置中填写，保留已有配置。
