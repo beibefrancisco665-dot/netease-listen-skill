@@ -1,0 +1,7 @@
+{
+ "id":"netease-local-adapter","name":"网易云本机通信适配","version":"1.0.1","apiVersion":1,"entry":"index.js","category":"utility","enabledByDefault":false,
+ "description":"限定网易云模块、本机桥接与当前QQA实例接口；维护本地桥接进程，不放开全局内网访问。",
+ "capabilities":["netease.local.fetch","status.netease-local-adapter"],"permissions":[],
+ "settings":{"enabled":true,"autoStartBridge":true,"nodeExecutable":""},
+ "configSchema":{"enabled":{"type":"boolean","label":"允许网易云本机通信"},"autoStartBridge":{"type":"boolean","label":"随QQA维护本地音乐桥接"},"nodeExecutable":{"type":"string","label":"Node可执行文件","description":"通常留空，使用PATH中的node；找不到Node时填node.exe的绝对路径，无需引号。"}}
+}

@@ -1,0 +1,37 @@
+{
+  "trustedPlugins": [
+    "netease-listen-together",
+    "netease-song-review",
+    "netease-local-adapter"
+  ],
+  "skills": {
+    "netease-listen-together": {
+      "enabled": false,
+      "bridgeUrl": "http://127.0.0.1:32630",
+      "bridgeToken": "",
+      "allowedChats": "",
+      "autonomousMusic": true,
+      "proactiveInvitations": true,
+      "invitationMinHours": 3,
+      "invitationMaxHours": 6,
+      "maxInvitationsPerDay": 2,
+      "invitationQuietStartHour": 23,
+      "invitationQuietEndHour": 9,
+      "autonomousPlayModes": true,
+      "modeSwitchIntervalMinutes": 10,
+      "maxModeSwitchesPerHour": 3
+    },
+    "netease-song-review": {
+      "enabled": false,
+      "bridgeUrl": "http://127.0.0.1:32630",
+      "bridgeToken": "",
+      "allowedChats": "",
+      "reactToSongChanges": true
+    },
+    "netease-local-adapter": {
+      "enabled": false,
+      "autoStartBridge": true,
+      "nodeExecutable": ""
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "qqa-netease-together-local",
+  "version": "2.5.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "login": "node scripts/login.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@neteasecloudmusicapienhanced/api": "4.40.1"
+  }
+}

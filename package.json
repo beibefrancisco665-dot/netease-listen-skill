@@ -1,0 +1,16 @@
+{
+  "name": "qqa-netease-listen-together",
+  "version": "2.5.1",
+  "private": true,
+  "description": "QQAgent 网易云双人一起听、随机邀请、歌曲回应与自主播放模式扩展",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "setup": "npm ci --prefix bridge --ignore-scripts",
+    "test": "npm --prefix bridge test && node --test test/*.test.mjs",
+    "test:qqa": "node scripts/test-host.mjs"
+  }
+}

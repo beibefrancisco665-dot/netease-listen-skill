@@ -1,0 +1,129 @@
+{
+  "id": "netease-song-review",
+  "name": "网易云歌曲主动点评",
+  "version": "1.4.2",
+  "requires": ["netease.local.fetch"],
+  "apiVersion": 1,
+  "category": "knowledge",
+  "description": "一起听期间按人设回应歌曲变化，保留歌曲点评、自主收藏与搜歌分享。",
+  "enabledByDefault": false,
+  "permissions": [
+    "web_fetch"
+  ],
+  "settings": {
+    "bridgeUrl": "http://127.0.0.1:32630",
+    "bridgeToken": "",
+    "allowedChats": "",
+    "autonomousReview": true,
+    "researchOnDemand": true,
+    "reviewIntervalSeconds": 180,
+    "linkMusicPreferences": true,
+    "proactiveLikedSongs": true,
+    "autonomousLikeSongs": true,
+    "likeIntervalSeconds": 180,
+    "maxAutonomousLikesPerHour": 6,
+    "autonomousDiscovery": true,
+    "discoveryIntervalSeconds": 300,
+    "maxDiscoverySharesPerHour": 6,
+    "reactToSongChanges": true,
+    "songChangeStableSeconds": 10,
+    "songChangeReplyIntervalSeconds": 60,
+    "maxSongChangeRepliesPerHour": 6
+  },
+  "configSchema": {
+    "bridgeUrl": {
+      "type": "string",
+      "label": "本地桥接地址",
+      "description": "与网易云一起听 Skill 使用同一个本地桥接地址。"
+    },
+    "bridgeToken": {
+      "type": "string",
+      "label": "连接密钥",
+      "description": "填写同一个本地桥接连接密钥，不要发到 QQ 聊天。",
+      "secret": true
+    },
+    "allowedChats": {
+      "type": "string",
+      "label": "允许的 QQ 会话",
+      "description": "填写 private:发起人的 QQ 号或 group:群号；不能填写机器人自身 QQ。"
+    },
+    "autonomousReview": {
+      "type": "boolean",
+      "label": "主动点评",
+      "description": "开启后，音乐聊天中遇到新歌或讨论停顿时，qqa 可以主动调用点评资料并自然表达看法。"
+    },
+    "researchOnDemand": {
+      "type": "boolean",
+      "label": "允许联网补充",
+      "description": "允许为点评主动使用 QQAgent 现有联网工具；关闭后不因点评主动搜索。用户另行要求的搜索遵循原工具权限。"
+    },
+    "reviewIntervalSeconds": {
+      "type": "number",
+      "label": "主动点评最短间隔（秒）",
+      "description": "60～3600 秒，默认 180。连续切歌时减少打扰；明确要求点评不受此间隔限制。"
+    },
+    "linkMusicPreferences": {
+      "type": "boolean",
+      "label": "关联人设与网易云偏好",
+      "description": "读取机器人账号的真实红心列表，结合当前人设内容中的【音乐爱好】，未收藏不等于不喜欢。"
+    },
+    "proactiveLikedSongs": {
+      "type": "boolean",
+      "label": "喜欢的歌曲主动聊天",
+      "description": "真实音乐会话首次调用点评工具后启用。双人房间播放已红心的新歌、会话空闲45秒时，可按人设主动聊一句；最少间隔180秒、每小时最多3次，不请求或执行切歌。关闭即停止。"
+    },
+    "autonomousLikeSongs": {
+      "type": "boolean",
+      "label": "自主收藏喜欢的歌曲",
+      "description": "真实音乐会话中由模型结合人设明确判断喜欢后，把当前歌曲收藏到机器人网易云账号；不会收藏不确定或不喜欢的歌曲。"
+    },
+    "likeIntervalSeconds": {
+      "type": "number",
+      "label": "自主收藏最短间隔（秒）",
+      "description": "120～3600 秒，默认 180；两次自主判断至少等待该时间，不因重复检查重复收藏。"
+    },
+    "maxAutonomousLikesPerHour": {
+      "type": "number",
+      "label": "每小时自主收藏上限",
+      "description": "1～12，默认 6；用于防止模型误判造成连续收藏。"
+    },
+    "autonomousDiscovery": {
+      "type": "boolean",
+      "label": "自主寻找并分享音乐",
+      "description": "启用后自动为已授权私聊的有效双人房间搜索可播放歌曲，按人设推荐并发送网易云链接；无需提醒，不自动切歌，明确喜欢时可收藏到机器人账号。"
+    },
+    "discoveryIntervalSeconds": {
+      "type": "number",
+      "label": "自主搜歌间隔（秒）",
+      "description": "180～7200秒，默认300秒。忙碌、未读、暂停或无房间时延后；不会补发积压推荐。"
+    },
+    "maxDiscoverySharesPerHour": {
+      "type": "number",
+      "label": "每小时搜歌分享上限",
+      "description": "1～12，默认6；包含无结果或模型无合适推荐的搜索尝试，热重载不重置计数。"
+    },
+    "reactToSongChanges": {
+      "type": "boolean",
+      "label": "回应一起听切歌",
+      "description": "独立监听授权私聊的歌曲变化，稳定后按人设回应；排除qqa自己发出的切歌，来源不明时使用中性措辞。与邀请额度独立。"
+    },
+    "songChangeStableSeconds": {
+      "type": "number",
+      "label": "切歌稳定等待（秒）",
+      "description": "10～60，默认10。连续切歌合并为最后一首；还需等待原桥接同步，通常约10～30秒后获得回应机会。"
+    },
+    "songChangeReplyIntervalSeconds": {
+      "type": "number",
+      "label": "切歌回应最短间隔（秒）",
+      "description": "60～3600，默认60；受限、忙碌或过期的切歌不补发。"
+    },
+    "maxSongChangeRepliesPerHour": {
+      "type": "number",
+      "label": "每小时切歌回应上限",
+      "description": "1～6，默认6，同一机器人全部授权私聊合计；包括模型选择沉默或失败的尝试，重启保留。"
+    }
+  },
+  "prompt": {
+    "sections": []
+  }
+}
